@@ -1,0 +1,14 @@
+/* para pantallas hasta 600px de ancho */
+@media (max-width: 600px) {
+    .distribucion-ordenadores {
+      width: 30px;
+    }
+  }
+  
+  /* para pantallas mayores a 600px de ancho */
+  @media (min-width: 601px) {
+    .distribucion-ordenadores {
+      width: 65px;
+    }
+  }
+  

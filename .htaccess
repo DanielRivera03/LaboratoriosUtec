@@ -1,0 +1,34 @@
+# URL's AMIGABLES -> VALIDO PARA TODO EL SISTEMA
+Options +FollowSymLinks
+Options All -Indexes
+RewriteEngine on
+# Impedir el acceso directo al archivo .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+# Desactivar la visualización del listado de directorios
+Options -Indexes
+# Impedir el acceso a determinadas extensiones de archivos
+<FilesMatch "\.(ini|log|sh|gitignore)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+# Proteger el archivo de configuración de Apache
+<FilesMatch "(\.htaccess|\.htpasswd)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+# Asegurar el acceso a la configuración del PHP
+<FilesMatch "\.phps$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+# Evitar el acceso a archivos de copias de seguridad y archivos de texto sin formato
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp|text|txt|~))$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+#-> CAMBIAR POR URL DE SU SERVIDOR
+ErrorDocument 403 http://localhost:90/ControlLaboratorios/Controlador/GestionesLaboratorios_Controlador.php?gestioneslaboratorios=error-403
+ErrorDocument 404 http://localhost:90/ControlLaboratorios/Controlador/GestionesLaboratorios_Controlador.php?gestioneslaboratorios=error-404
